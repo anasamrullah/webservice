@@ -24,3 +24,7 @@ Route::get('/app', function () {
 Route::get('/mahasiswa/{nama}', function ($nama) {
     return "Nama Mahasiswa : $nama";    
 });
+
+Route::get('/portofolio', function () {
+    return view('profile');    
+});
