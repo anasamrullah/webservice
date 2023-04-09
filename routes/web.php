@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\InstitutionController;
+use App\Http\Controllers\BlogController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,9 +49,7 @@ Route::get('/view-app', function () {
     return view('app');
 });
 
-// route ke controller 
-Route::get('test/{kode}', [TestController::class,'index']);
-
-//route untuk course
-Route::get('course', [CourseController::class,'index'])->name('course.index');
-Route::get('institution', [InstitutionController::class,'index'])->name('institution.index');
+//route untuk blog
+Route::get('blog', [BlogController::class,'index'])->name('blog.index');
+Route::get('blog/creat', [BlogController::class,'create'])->name('blog.create');
+Route::PUT('blog/store', [BlogController::class,'store'])->name('blog.store');
