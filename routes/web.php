@@ -51,5 +51,8 @@ Route::get('/view-app', function () {
 
 //route untuk blog
 Route::get('blog', [BlogController::class,'index'])->name('blog.index');
-Route::get('blog/creat', [BlogController::class,'create'])->name('blog.create');
+Route::get('blog/create', [BlogController::class,'create'])->name('blog.create');
 Route::PUT('blog/store', [BlogController::class,'store'])->name('blog.store');
+Route::get('blog/edit/{blog}', [BlogController::class,'edit'])->name('blog.edit');
+Route::PUT('blog/update/{blog}', [BlogController::class,'update'])->name('blog.update');
+Route::delete('blog/{id}', [BlogController::class,'delete'])->name('blog.delete');

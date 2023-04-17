@@ -22,7 +22,7 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $request->validate([
             'author' => 'required',
             'title' => 'required',
             'body' => 'required',
@@ -33,4 +33,27 @@ class BlogController extends Controller
         return redirect(route('blog.index'));
     }
 
+    
+    public function delete(Blog $id)
+    {
+        $id->delete();
+        return redirect('blog');
+    }
+    
+    public function edit(Blog $blog)
+    {
+        return view('blog.edit', compact('blog'));
+    }
+
+    public function update(Request $request, Blog $blog)
+    {
+        $request->validate([
+            'author' => 'required',
+            'title' => 'required',
+            'body' => 'required',
+            'keyword' => 'required',
+        ]);
+        $blog->update($request->all());
+        return redirect(route('blog.index'));
+    }
 }

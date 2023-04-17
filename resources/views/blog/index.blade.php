@@ -27,8 +27,12 @@
                 <td>{{ $row->body }}</td>
                 <td>{{ $row->keyword }}</td>
                 <td>
-                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="{{ route ('blog.delete', $row['id'])}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin?')">DELETE</button>
+                        <a href="{{ route ('blog.edit', $row['id'])}}" class="btn btn-warning btn-sm">EDIT</a>
+                    </form>                    
                 </td>
             </tr>
             @endforeach
